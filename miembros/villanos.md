@@ -5,3 +5,6 @@
 3. Brainiac
 4. Joker
 5. Darkseid
+
+# Notas
+Para más información sobre los villanos, consulte la documentación de la legión del mal.
