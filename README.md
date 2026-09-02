@@ -10,6 +10,7 @@
 
 
 # 🦹‍♂️ La Legión del Mal desde local
+### Es un grupo dedicado a aprender Git y GitHub, mientras planeamos dominar el mundo. Aquí encontrarás planes de acción, fichas de miembros y estrategias para derrotar a los héroes.
 
 > _"El mundo no se conquista con fuerza bruta, se conquista con un buen plan y control de versiones."_
 > — Lex Luthor, fundador
