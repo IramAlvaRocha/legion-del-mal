@@ -5,6 +5,7 @@ Spiderman es un superhéroe que vive en Nueva York. Su identidad secreta es Pete
 ## Enemigos
 - Doctor Octopus
 - Green Goblin
+- Venom
 
 ## Peliculas
 - Spider-Man (2002)
