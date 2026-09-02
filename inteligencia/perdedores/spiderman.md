@@ -14,3 +14,8 @@ Spiderman es un superhéroe que vive en Nueva York. Su identidad secreta es Pete
 ## Debilidades
 - Su sentido arácnido puede ser abrumador en situaciones de mucho peligro.
 - Su vida personal puede verse afectada por su doble identidad, lo que lo hace vulnerable emocionalmente.
+
+## Conocidos
+
+- Mary Jane Watson
+- Harry Osborn
