@@ -1,0 +1,17 @@
+name: Acceso a la fortaleza
+
+on: push
+
+jobs: 
+    acceso-a-la-fortaleza-prohibida:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: El agente llega a la fortaleza
+              run: |
+                echo "El agente llega a la fortaleza"
+                echo ""
+                echo "Buscar los archivos de la legión"
+                echo ls /
+                echo ""
+                echo "✖️ pero que pasó? no hay nada"
