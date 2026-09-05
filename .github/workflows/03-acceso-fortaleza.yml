@@ -17,7 +17,7 @@ jobs:
                 echo "✖️ pero que pasó? no hay nada"
 
             - name: Brainiac desloque ala boveda
-              uses: action/checkout@v4
+              uses: actions/checkout@v4
             
             - name: 'Ahora si vamos a ver los planes'
               run: |
