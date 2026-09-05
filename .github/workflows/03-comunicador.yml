@@ -12,6 +12,20 @@ on:
                     - Thanos
                     - Darth Vader
 
+            mensaje:
+                description: "Mensaje para el consejo"
+                required: true
+                default: "¡Hola, consejo! La misión fue todo un éxito"
+            
+            prioridad:
+                description: "¿Qué nivel de prioridad tiene?"
+                required: true
+                type: choice
+                options:
+                    - 🟢 Normal
+                    - 🟡 Alta
+                    - 🔴 Crítica
+
 jobs:
     transmitir-mensaje:
         runs-on: ubuntu-latest
