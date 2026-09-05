@@ -31,4 +31,10 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v4
+            - name: Imprimir inputs
+              run: |
+                echo "Inputs: "
+                echo ""
+                echo "Villano: ${{ github.event.inputs.villano }}"
+                echo "Prioridad: ${{ github.event.inputs.prioridad }}"
+                echo "Mensaje: ${{ github.event.inputs.mensaje }}"
