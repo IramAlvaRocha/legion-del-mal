@@ -16,6 +16,15 @@ on:
                 description: "Mensaje para el consejo"
                 required: true
                 default: "¡Hola, consejo! La misión fue todo un éxito"
+
+            cow_character:
+                description: "¿Qué personaje de vaca quieres?"
+                required: true
+                type: choice
+                options:
+                    - eyes
+                    - bunny
+                    - dragon
             
             prioridad:
                 description: "¿Qué nivel de prioridad tiene?"
@@ -45,7 +54,7 @@ jobs:
                 echo ""
                 echo "Fecha: $(date -u + "%d/%m/%Y - %H:%M UTC")"
                 echo "====== Mensaje ======"
-                cowsay -f eyes "${{ inputs.mensaje }}"
+                cowsay -f ${{ inputs.cow_character }} "${{ inputs.mensaje }}"
                 echo ""
                 echo "---- ${{inputs.villano }}"
                 echo "..."
