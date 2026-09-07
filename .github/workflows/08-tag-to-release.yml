@@ -1,0 +1,80 @@
+name: Tag to Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  crear-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout con historial y tags
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Generar notas de versión con logs
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          echo "Tag actual: $TAG"
+
+          PREV_TAG=$(git describe --tags --abbrev=0 "${TAG}^" 2>/dev/null || echo "")
+          if [ -z "$PREV_TAG" ]; then
+            echo "No hay tag previo. Usando todo el historial."
+            RANGE="$TAG"
+            PREV_TXT="_(primera versión, se incluye todo el historial)_"
+          else
+            echo "Tag previo: $PREV_TAG"
+            RANGE="$PREV_TAG..$TAG"
+            PREV_TXT="$PREV_TAG"
+          fi
+          echo "RANGE=$RANGE" >> "$GITHUB_ENV"
+          echo "PREV_TAG=$PREV_TAG" >> "$GITHUB_ENV"
+
+          {
+            echo "## 🧠 Despliegue de la Legión del Mal — $TAG"
+            echo ""
+            echo "_\"Los datos no mienten. Los seres orgánicos sí.\" — Brainiac v12.0_"
+            echo ""
+            echo "### 📦 Versión"
+            echo ""
+            echo "- **Tag:** \`$TAG\`"
+            echo "- **Comparado contra:** \`$PREV_TXT\`"
+            echo "- **Fecha:** $(date -u +'%Y-%m-%d %H:%M UTC')"
+            echo "- **Commit:** \`${GITHUB_SHA}\`"
+            echo ""
+            echo "### 📝 Cambios en esta versión"
+            echo ""
+            git log "$RANGE" --pretty=format:'- %h %s (%an, %ad)' --date=short || echo "- Sin commits encontrados en el rango $RANGE"
+            echo ""
+            echo ""
+            echo "### 📊 Estadísticas de cambios"
+            echo ""
+            echo "\`\`\`diff"
+            git diff --stat "$RANGE" || echo "Sin diff disponible"
+            echo "\`\`\`"
+            echo ""
+            echo "### 📜 Log completo"
+            echo ""
+            echo "\`\`\`"
+            git log "$RANGE" --pretty=fuller --no-merges || git log "$RANGE" --oneline
+            echo "\`\`\`"
+          } > release_notes.md
+
+          echo "--- release_notes.md ---"
+          cat release_notes.md
+
+      - name: Crear GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "Legión del Mal ${{ github.ref_name }}"
+          body_path: release_notes.md
+          generate_release_notes: true
+          draft: false
+          prerelease: false
