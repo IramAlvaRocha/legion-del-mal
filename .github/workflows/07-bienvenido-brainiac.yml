@@ -1,0 +1,24 @@
+name: Bienvenido Brainiac
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  bienvenida-brainiac:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Brainiac revisa el issue
+        uses: actions/github-script@v9.0.0
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `🧠 **Brainiac ha interceptado tu transmisión, @${context.payload.issue.user.login}.**\n\nTu issue #${context.issue.number} "${context.payload.issue.title}" está siendo revisada por Brainiac en el Núcleo de Datos.\n\n> Los datos no mienten. Los seres orgánicos sí.\n\n_El Consejo de la Legión del Mal ha sido notificado._`
+            });
