@@ -8,3 +8,6 @@ El objetivo es congelar la ciudad de Metrópolis para paralizar a Superman y al 
 4. **Monitoreo de la ciudad:** Joker y Loki se encargarán de monitorear la ciudad y asegurarse de que el rayo congelador esté funcionando correctamente.
 5. **Evaluación de resultados:** Después de la operación, se evaluará el impacto del rayo congelador en Metrópolis y se ajustarán los planes según sea necesario.
 6. **Retirada del satélite:** Una vez que la operación haya concluido, el satélite será retirado de la órbita y regresará a la base del Mar Rojo para su almacenamiento y mantenimiento.
+
+## Plan de escape
+- **Si los héroes descubren el satélite:** Activar un protocolo de autodestrucción del satélite para evitar que caiga en manos enemigas.

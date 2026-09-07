@@ -5,3 +5,6 @@ Estos son los planes para control mental de los héroes enemigos. Se han desarro
 2. **Sustancias químicas y drogas:** Se han creado sustancias químicas que pueden alterar el comportamiento de los héroes, haciéndolos más susceptibles a la manipulación.
 3. **Hipnosis y sugestión:** Se han entrenado especialistas en hipnosis para influir en la mente de los héroes y hacer que sigan nuestras órdenes.
 4. **Manipulación de recuerdos:** Se han desarrollado técnicas para alterar o borrar recuerdos específicos de los héroes, lo que puede cambiar su percepción de la realidad y sus decisiones.
+
+## Plan de escape
+- **Si los héroes descubren el plan de control mental:** Se activará un protocolo de emergencia para desactivar los implantes cerebrales y neutralizar cualquier efecto de las sustancias químicas o drogas utilizadas. Además, se implementarán medidas de seguridad para proteger la identidad de los especialistas en hipnosis y manipulación de recuerdos.
