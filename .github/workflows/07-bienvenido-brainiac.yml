@@ -22,3 +22,27 @@ jobs:
               issue_number: context.issue.number,
               body: `🧠 **Brainiac ha interceptado tu transmisión, @${context.payload.issue.user.login}.**\n\nTu issue #${context.issue.number} "${context.payload.issue.title}" está siendo revisada por Brainiac en el Núcleo de Datos.\n\n> Los datos no mienten. Los seres orgánicos sí.\n\n_El Consejo de la Legión del Mal ha sido notificado._`
             });
+
+      - name: Notificar por correo a la Legión
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "🧠 Brainiac: nuevo issue #${{ github.event.issue.number }} - ${{ github.event.issue.title }}"
+          to: iram.alvarezrch@uanl.edu.mx
+          from: Brainiac <${{ secrets.MAIL_USERNAME }}>
+          body: |
+            Brainiac ha interceptado una nueva transmisión.
+
+            Issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}
+            Autor: ${{ github.event.issue.user.login }}
+            URL: ${{ github.event.issue.html_url }}
+
+            Contenido:
+            ${{ github.event.issue.body }}
+
+            Este issue ya recibió respuesta automática y está siendo revisado en el Núcleo de Datos.
+            "Los datos no mienten. Los seres orgánicos sí."
